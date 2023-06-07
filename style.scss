@@ -1,0 +1,281 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.clear{
+    visibility: hidden;
+}
+body{
+    background-image: url('./assert/hero.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+
+    header{
+        .menuNav{
+            display: flex;
+            justify-content: space-between;
+            align-items:flex-end;
+            margin: 10px 25px;
+
+           
+
+            button, #signUp{
+                width: 40px;
+                height: 35px;
+                font-size: 1.3em;
+                border-radius: 30%;
+                border: none;
+                background-color: black;
+                color: white;
+                cursor: pointer;
+                transition: 0.4s;
+
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+        #desktopNav{
+            display: none;
+        }
+        #mobileNav{
+            position:absolute;
+            background-color: white;
+            width:90%;
+            display: flex;
+            flex-direction: column;
+            top: 0px;
+            margin:10px 5%;
+            height:90vh;
+            //display: none;
+            background-color: aliceblue;
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 0;
+            -webkit-box-shadow: 0px 0px 117px 2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 117px 2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 117px 2px rgba(0,0,0,0.75);
+
+            .close{
+                width:fit-content;
+                align-self:flex-end;
+                margin:10px;
+                
+                button{
+                    color: rgb(88, 91, 94);
+                    font-size: 2em;
+                    height: fit-content;
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    transition: 0.4s;
+
+                    &:hover{
+                        color: rgb(51, 52, 53);
+                        transform: rotate(360deg);
+                    }
+                }
+
+            }
+            article{
+                margin: 20px;
+                
+
+                div{
+                    display: grid;
+                    grid-template-columns:150px 150px;
+
+                    a{
+                        text-decoration: none;
+                        margin-top: 10px;
+                        width: fit-content;
+                        color: rgb(75, 83, 91);
+
+                        i{
+                            margin-right:10px;
+                        }
+                    }
+                }
+
+            }
+        }
+        .showing{
+            animation: show 1s forwards;
+        }
+        @keyframes show {
+            from{
+                width:0;
+                height:0;              
+            }
+            to{
+               width:90%;
+               height:90vh;
+            }
+            
+        }
+         .noShowing{
+            animation: noShow 1s forwards;
+        }
+        @keyframes noShow {
+            from{
+               width:90%;
+               height:90vh;
+            }
+            to{
+                width:0;
+                height:0;              
+            }
+            
+        }
+
+        #signUp{
+            display: none;
+        }
+
+    }
+    main{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 40px;
+
+        .leftSide{
+            width: 350px;
+            margin: 80px 30px;
+            h1{
+                font-size: 2.4em;
+                letter-spacing: 2.5px;
+                line-height: 1.4;
+            }
+            p{
+                color: rgb(99, 104, 108);
+                letter-spacing: 1.2px;
+                margin: 20px 0px;
+            }
+            button{
+                width: 100px;
+                height: 35px;
+                font-size: 1.2em;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                background-color: black;
+                cursor: pointer;
+                transition: 0.4s;
+
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        .rightSide{
+            display: none;
+        }
+    }
+
+    @media (min-width:800px) {
+        header{
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            .menuNav{
+                #menu{
+                    display: none;
+                }
+            }
+            #signUp{
+                display: block;
+                width: 120px;
+                height: 40px;
+                border-radius: 50px;
+                background-color: black;
+                color: white;
+                border:none;
+                font-size: 1em;
+                margin-right: 30px;
+            }
+            #mobileNav{
+                visibility: hidden;
+            }
+            #desktopNav{
+                display: block;
+                display: flex;
+                & :nth-of-type(2){
+                    &>div{
+                        left: -135%;
+                    }
+                }
+                & :nth-of-type(3){
+                    &>div{
+                        left: -50%;
+                    }
+                }
+               article{
+                position: relative;
+                width:fit-content;
+                flex:1 ;
+                cursor: default;
+                h4{
+                    margin:30px;
+                    color: white;
+                    font-size: 1.4em;
+                }
+                &>div{
+                    display: flex;
+                    flex-direction: column;
+                    visibility: hidden;
+                    background-color: white;
+                    position: absolute;
+                    padding: 30px 20px;
+                    border-radius:10px;
+                    transition: 0.1s;
+                    left:-100%;
+                    top:75%;
+                    h5{
+                        margin-bottom: 10px;
+                        font-size: 1.2em;
+                    }
+                    div{
+                        display: flex;
+                        a{
+                            color: rgb(75, 83, 91);
+                            font-size: 1.1em;
+                            i{
+                                margin-right: 10px;
+                            }
+                            width:100px;
+                            margin-right: 50px;
+                            text-decoration: none;
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        margin: -20px;
+                        border: 10px solid transparent;
+                        border-bottom-color: white;
+                    }
+                    &:hover{
+                        visibility: visible;
+                    }
+                }
+                    h4:hover + .links{
+                        visibility:visible;
+                            
+                    }
+               }
+            }
+        }
+        main{
+            .rightSide{
+                display: block;
+            }
+        }
+    }
+}
